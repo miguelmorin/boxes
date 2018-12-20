@@ -39,10 +39,10 @@ class ClosedBox(Boxes):
 
         t = self.thickness
 
-        d2 = edges.Bolts(2)
-        d3 = edges.Bolts(3)
+        d2 = edges.Bolts(1) # these work well for small boxes
+        d3 = edges.Bolts(1)
 
-        d2 = d3 = None
+        #d2 = d3 = None
 
         self.rectangularWall(x, h, "FFFF", bedBolts=[d2] * 4, move="right")
         self.rectangularWall(y, h, "FfFf", bedBolts=[d3, d2, d3, d2], move="up")

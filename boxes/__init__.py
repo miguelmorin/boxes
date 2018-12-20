@@ -261,7 +261,7 @@ class Boxes:
         """
         self.spacing = 2 * self.burn + 0.5 * self.thickness
 
-        self.bedBoltSettings = (3, 5.5, 2, 20, 15)  # d, d_nut, h_nut, l, l1
+        self.bedBoltSettings = (2, 4.2, 1.8, 13.5, 10)  # d, d_nut, h_nut, l, l1, these settings work well for 3mm perspex from Kitronik and 20mm long, 3mm diameter screw from Caterpillar
         self.hexHolesSettings = (5, 3, 'circle')  # r, dist, style
         self.surface, self.ctx = self.formats.getSurface(self.format, self.output)
         self.ctx.set_line_width(max(2 * self.burn, 0.05))
@@ -1602,6 +1602,7 @@ class Boxes:
         :param move:  (Default value = None)
 
         """
+        
         if len(edges) != 4:
             raise ValueError("four edges required")
         edges = [self.edges.get(e, e) for e in edges]
@@ -1628,6 +1629,7 @@ class Boxes:
             if 2*i+1in ignore_widths:
                 e1 = self.edges["e"]
 
+            #print(type(edges[i])) # this indicates which type of edges get drawn
             edges[i](l,
                      bedBolts=self.getEntry(bedBolts, i),
                      bedBoltSettings=self.getEntry(bedBoltSettings, i))
