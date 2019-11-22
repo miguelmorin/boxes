@@ -261,7 +261,15 @@ class Boxes:
         """
         self.spacing = 2 * self.burn + 0.5 * self.thickness
 
-        self.bedBoltSettings = (2, 4.2, 1.8, 13.5, 10)  # d, d_nut, h_nut, l, l1, these settings work well for 3mm perspex from Kitronik and 20mm long, 3mm diameter screw from Caterpillar
+        # This next line controls the settings for the bed bolts: diameter of
+        # screw, diameter of nut, height of nut, length of screw, and length at
+        # which to place the nut for the screw (must be smaller than the length
+        # of the screw. The settings below work well for 3mm acrylic for the
+        # faces and screws M2x16mm. Notice that the length of screw is 13.5
+        # because one needs to account for the 3mm of the thickness of the
+        # material, so the space for the screw is 16.5mm and the screw will have
+        # margin of 0.5mm.
+        self.bedBoltSettings = (2, 4.2, 1.8, 13.5, 10)  # d, d_nut, h_nut, l, l1
         self.hexHolesSettings = (5, 3, 'circle')  # r, dist, style
         self.surface, self.ctx = self.formats.getSurface(self.format, self.output)
         self.ctx.set_line_width(max(2 * self.burn, 0.05))
