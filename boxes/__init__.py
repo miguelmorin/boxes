@@ -1602,7 +1602,6 @@ class Boxes:
         :param move:  (Default value = None)
 
         """
-        
         if len(edges) != 4:
             raise ValueError("four edges required")
         edges = [self.edges.get(e, e) for e in edges]
@@ -1629,7 +1628,6 @@ class Boxes:
             if 2*i+1in ignore_widths:
                 e1 = self.edges["e"]
 
-            #print(type(edges[i])) # this indicates which type of edges get drawn
             edges[i](l,
                      bedBolts=self.getEntry(bedBolts, i),
                      bedBoltSettings=self.getEntry(bedBoltSettings, i))

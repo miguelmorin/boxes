@@ -306,8 +306,7 @@ class Edge(BaseEdge):
                 d = (bedBoltSettings or self.bedBoltSettings)[0]
                 for i in range(bedBolts.bolts):
                     self.hole(0.5 * interval_length,
-                              0.5 * self.thickness,
-                              0.5 * d)
+                              0.5 * self.thickness, 0.5 * d)
                     self.edge(interval_length, tabs=
                               (i == 0 or i == bedBolts.bolts - 1))
             else:
@@ -616,8 +615,7 @@ class FingerJointEdge(BaseEdge, FingerJointBase):
             if i != 0:
                 if not positive and bedBolts and bedBolts.drawBolt(i):
                     self.hole(0.5 * s,
-                              0.62 * self.settings.thickness,
-                              0.5 * d)
+                              0.62 * self.settings.thickness, 0.5 * d)
 
                 if positive and bedBolts and bedBolts.drawBolt(i):
                     self.bedBoltHole(s, bedBoltSettings)
